@@ -1,0 +1,31 @@
+.Loading,
+.Error {
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.Error {
+  color: red;
+}
+
+.Home {
+  padding-top: 20px;
+}
+
+.Grade-Row,
+.Grade-Column-Headers {
+  padding-left: 20px;
+  padding-right: 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+.Grade-Row:nth-child(2n) {
+  background-color: rgb(240, 240, 240);
+}
+
+.Grade-Column-Headers {
+  font-weight: bold;
+}
