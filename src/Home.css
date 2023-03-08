@@ -14,7 +14,7 @@
   padding-top: 20px;
 }
 
-.Grade-Row,
+.Course.Grade-Row,
 .Grade-Column-Headers {
   padding-left: 20px;
   padding-right: 20px;
@@ -22,10 +22,10 @@
   grid-template-columns: 2fr 1fr 1fr;
 }
 
-.Grade-Row:nth-child(2n) {
-  background-color: rgb(240, 240, 240);
-}
-
 .Grade-Column-Headers {
   font-weight: bold;
+}
+
+.Hidden {
+  display: none;
 }
