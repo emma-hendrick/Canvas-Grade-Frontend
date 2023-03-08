@@ -15,11 +15,19 @@
 }
 
 .Course.Grade-Row,
+.Assignment.Grade-Row,
 .Grade-Column-Headers {
   padding-left: 20px;
   padding-right: 20px;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
+}
+
+.Assignment.Name,
+.Assignment.Grade,
+.Assignment.ID
+ {
+  padding-left: 30px;
 }
 
 .Grade-Column-Headers {
