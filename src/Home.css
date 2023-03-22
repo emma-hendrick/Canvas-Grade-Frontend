@@ -38,7 +38,7 @@
 }
 
 .Assignment.Description td {
-  padding-left: 50px;
+  padding-left: 30px;
   width: 100%;
 }
 
@@ -55,11 +55,16 @@
   border-bottom: 5px solid #00cb66;
 }
 
-.Assignment.Name,
-.Assignment.Grade,
-.Assignment.ID
- {
+.Assignment {
   padding-left: 30px;
+}
+
+.Name {
+  width: 50%;
+}
+
+.Grade {
+  width: 25%;
 }
 
 .Hidden {
