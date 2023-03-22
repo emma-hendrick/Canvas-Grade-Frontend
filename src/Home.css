@@ -11,16 +11,48 @@
 }
 
 .Home {
-  padding-top: 20px;
+  padding: 20px;
 }
 
-.Course.Grade-Row,
-.Assignment.Grade-Row,
 .Grade-Column-Headers {
-  padding-left: 20px;
-  padding-right: 20px;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  background-color: #00cb66;
+  color: white;
+  text-align: left;
+}
+
+.Grade-Table {
+  border-radius: 10px;
+  border-collapse: collapse;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  width: 100%;
+}
+
+.Grade-Table th,
+.Grade-Table td.Course {
+  padding: 30px 15px;
+}
+
+.Grade-Table td.Assignment {
+  padding: 12px 15px;
+}
+
+.Assignment.Description td {
+  padding-left: 50px;
+  width: 100%;
+}
+
+.Assignment.Description,
+.Grade-Table tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.Grade-Table tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.Grade-Table tr:last-of-type {
+  border-bottom: 5px solid #00cb66;
 }
 
 .Assignment.Name,
@@ -28,10 +60,6 @@
 .Assignment.ID
  {
   padding-left: 30px;
-}
-
-.Grade-Column-Headers {
-  font-weight: bold;
 }
 
 .Hidden {

@@ -45,26 +45,26 @@ function Grades() {
 
   return (
       <div className='Home'>
-        <div className='Grade-Grid'>
-          <div className='Grade-Column-Headers'>
-            <div className='Header Name'>Name</div>
-            <div className='Header Grade'>Grade</div>
-            <div className='Header ID'>ID</div>
-          </div>
+        <table className='Grade-Table'>
+          <tr className='Grade-Column-Headers'>
+            <th className='Header Name'>Name</th>
+            <th className='Header Grade'>Grade</th>
+            <th className='Header ID'>ID</th>
+          </tr>
           {grades.map((gradeObject, i) => 
-            <div key={gradeObject?.course_id}>
-              <div className='Course Grade-Row' onClick={() => {
+            <>
+              <tr className='Course Grade-Row' onClick={() => {
               var shownAssignments = [...shownCourseAssignments];
               shownAssignments[i] = !shownAssignments[i];
               setShownCourseAssignments(shownAssignments);
             }}>
-                <div className='Course Name'> {gradeObject?.course_name} </div>
-                <div className='Course Grade'> {gradeObject?.grade_percentage}% ({gradeObject?.grade_letter})</div>
-                <div className='Course ID'> {gradeObject?.course_id} </div>
-              </div>
+                <td className='Course Name'> {gradeObject?.course_name} </td>
+                <td className='Course Grade'> {gradeObject?.grade_percentage}% ({gradeObject?.grade_letter})</td>
+                <td className='Course ID'> {gradeObject?.course_id} </td>
+              </tr>
             {shownCourseAssignments[i] ? gradeObject?.assignments.map((assignmentObject, j) => 
               <>
-                <div  key={assignmentObject?.id} className={'Assignment Grade-Row'} onClick={() => {
+                <tr  key={assignmentObject?.id} className={'Assignment Grade-Row'} onClick={() => {
               var shownDescriptions = [...shownAssignmentDescriptions];
               if (!shownDescriptions[i]) {
                 shownDescriptions[i] = [];
@@ -73,8 +73,8 @@ function Grades() {
               else shownDescriptions[i][j] = !shownDescriptions[i][j];
               setShownAssignmentDescriptions(shownDescriptions);
             }}>
-                  <div className='Assignment Name'> -- {assignmentObject?.name} </div>
-                  <div className='Assignment Grade'> -- {
+                  <td className='Assignment Name'> {assignmentObject?.name} </td>
+                  <td className='Assignment Grade'> {
                     assignmentObject?.workflow_state === 'submitted' ? 
                     'Not Yet Graded':
                     assignmentObject?.grade_percentage === null ?
@@ -83,15 +83,20 @@ function Grades() {
                     assignmentObject?.grade_percentage + '% (' + assignmentObject?.grade_letter + ')'
                     : 
                     'Not Turned In'
-                  }</div>
-                  <div className='Assignment ID'> -- {assignmentObject?.id} </div>
-                </div>
-                {shownAssignmentDescriptions[i] ? shownAssignmentDescriptions[i][j] ? <div className='Assignment Description' dangerouslySetInnerHTML={{__html: assignmentObject?.description}}></div>: '': ''}
+                  }</td>
+                  <td className='Assignment ID'> {assignmentObject?.id} </td>
+                </tr>
+                {shownAssignmentDescriptions[i] ? shownAssignmentDescriptions[i][j] ? 
+                <tr className='Assignment Description'>
+                  <td colSpan='3'>
+                    <div dangerouslySetInnerHTML={{__html: assignmentObject?.description}}></div>
+                  </td>
+                </tr>: '': ''}
               </>
             ): ''}
-            </div>
+            </>
           )}
-        </div>
+        </table>
       </div>
   );
 }
